@@ -1,0 +1,28 @@
+{
+  "name": "shouldiuse",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sébastien Cevey <seb@cine7.net>",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@ampproject/rollup-plugin-closure-compiler": "^0.8.4",
+    "acorn": "^6.0.4",
+    "libnpm": "^1.4.0",
+    "memory-fs": "^0.4.1",
+    "parcel": "^1.10.3",
+    "rollup": "^0.67.3",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-buble": "^0.19.4",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-terser": "^3.0.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "tmp-promise": "^1.0.5",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
+  }
+}
