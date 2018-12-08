@@ -4,9 +4,11 @@ const Hapi = require('hapi');
 
 const {run} = require('./src/compile');
 
+const port = process.env.PORT || 8000;
+
 const server = Hapi.server({
     host: '0.0.0.0',
-    port: 8000
+    port
 });
 
 async function start() {
