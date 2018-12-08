@@ -36,7 +36,6 @@ async function compile(options) {
     const code = await promisify(fs.readFile.bind(fs))('/dist/out-webpack.js');
     return {
         code: String(code),
-        codeSize: code.length,
     };
 }
 

@@ -8,13 +8,21 @@ const buble = require("rollup-plugin-buble");
 
 // Minifiers
 const {uglify} = require("rollup-plugin-uglify");
-const compiler = require('@ampproject/rollup-plugin-closure-compiler');
+const uglifyEs = require("rollup-plugin-uglify-es");
+const closureCompiler = require('@ampproject/rollup-plugin-closure-compiler');
 const {terser} = require("rollup-plugin-terser");
 
-// TODO: configure minification engine
-// TODO: use commonjs plugin?
+const MINIFIERS = {
+    // TODO: preprocess via babel/buble before uglify iff ES>5
+    // TODO: option to mangle props?
+    'uglify': [uglify()],
+    'uglify-es': [uglifyEs()],
+    'terser': [terser()],
+    'closure': [closureCompiler()],
+};
 
 async function compile(options) {
+    const minifierOps = options.minifier ? MINIFIERS[options.minifier] : [];
     const bundle = await rollup({
         input: options.sourcePath,
         plugins: [
@@ -26,10 +34,7 @@ async function compile(options) {
                 },
             }),
             commonjs(),
-            // babel(),
-            ...(options.minifier === 'uglify' ? [uglify()] : []),
-            ...(options.minifier === 'terser' ? [terser()] : []),
-            ...(options.minifier === 'closure' ? [compiler()] : []),
+            ...minifierOps,
         ]
     });
     const { code, map } = await bundle.generate({
@@ -39,7 +44,7 @@ async function compile(options) {
     });
     return {
         code,
-        codeSize: code.length,
+        // TODO: return configuration
     };
 }
 
