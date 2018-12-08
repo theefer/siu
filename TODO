@@ -1,0 +1,18 @@
+- Use tidier FE framework (Sapper?) for the UI
+
+- Improve styling of results
+- Show payload size as % of recommended JS payload size (700KB
+  ungzipped, 170KB gzipped) for context
+- Test on mobile
+
+- Allow comparing two libraries/compilations
+- Cleaner display of compilation errors
+
+- Gracefully handle invalid JS (acorn error), return 400, show error
+- Compile with Parcel
+
+- Consistently embed licenses in all outputs/or none
+- Allow choosing whether to embed licenses in the output
+
+- Stream progress of compilation, return each compilation result
+  asynchronously as it arrives
