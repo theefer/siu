@@ -2,6 +2,7 @@ const sourceEl = document.querySelector('#source');
 const compileEl = document.querySelector('#compile');
 const outputsEl = document.querySelector('#outputs');
 const exampleSelectorEl = document.querySelector('#example-selector');
+const resultsNoticeEl = document.querySelector('.results-notice');
 
 const EXAMPLES = [
     {
@@ -96,8 +97,12 @@ compileEl.addEventListener('click', () => {
     const payload = {
         source,
     };
-    // TODO: show pending state
-    // TODO: disable submit button
+
+    // Disable compile button, show processing notice
+    compileEl.disabled = true;
+    resultsNoticeEl.textContent = 'Compiling…';
+    outputsEl.innerHTML = '';
+
     fetch('/api/compile', {
         method: 'POST',
         body: JSON.stringify(payload),
@@ -105,8 +110,6 @@ compileEl.addEventListener('click', () => {
             'Content-Type': 'application/json',
         }
     }).then(resp => resp.json()).then(resp => {
-        outputsEl.innerHTML = '';
-
         // TODO: cleaner formatting
         // TODO: compare to recommended payload, for scale
         // TODO: order/highlight smallest
@@ -132,6 +135,9 @@ compileEl.addEventListener('click', () => {
             item.appendChild(document.createTextNode(')'));
             outputsEl.appendChild(item);
         });
+    }).finally(() => {
+        compileEl.disabled = false;
+        resultsNoticeEl.textContent = '';
     });
 });
 
