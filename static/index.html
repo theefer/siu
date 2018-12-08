@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>should i use</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>should i use</h1>
+
+  <main class="workspace">
+    <div class="inputs">
+      <select id="example-selector">
+        <option>Choose an example</option>
+      </select>
+      <textarea id="source" placeholder="Select one of the examples above, or enter some JavaScript that imports some packages, e.g.
+
+import {Map} from 'immutable';
+
+console.log(Map());"></textarea>
+      <button id="compile">Compile</button>
+    </div>
+
+    <div class="results">
+      <h2>Results</h2>
+      <!-- TODO: name the libraries and symbols -->
+      <ul id="outputs">
+      </ul>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

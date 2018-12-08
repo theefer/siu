@@ -1,0 +1,59 @@
+#source {
+    width: 99%;
+    height: 200px;
+}
+
+.workspace {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+.inputs,
+.results {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* TODO: reset all styles */
+select,
+button {
+    font-family: inherit;
+    font-size: inherit;
+    border: 0;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+#example-chooser,
+#compile {
+    border: 1px solid #ddd;
+    background: #f6f6f6;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.modal {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    overflow: auto;
+}
+
+.code-output {
+    font-family: monospace;
+}

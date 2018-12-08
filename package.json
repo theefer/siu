@@ -25,5 +25,9 @@
     "tmp-promise": "^1.0.5",
     "webpack": "^4.27.0",
     "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "hapi": "^17.8.1",
+    "inert": "^5.1.2"
   }
 }
